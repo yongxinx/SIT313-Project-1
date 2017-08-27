@@ -1,31 +1,55 @@
 
 .uppermenu{	
-	
-	right: 10px;
-	top: 2px;
 
 }
 
-.button {	
-	
- display: inline-block;
- border:2px solid #087E96;
- color: #232324;
- border-radius: 10px 10px 10px 10px;
- -webkit-border-radius: 10px 10px 10px 10px;
- -moz-border-radius: 10px 10px 10px 10px;
- font-family: Comic Sans MS;
- width: auto;
- height: auto;
- font-size: 17px;
- padding: 4px 12px;
- box-shadow: inset -50px -50px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
- -moz-box-shadow: inset -50px -50px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
- -webkit-box-shadow: inset -50px -50px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
- text-shadow: 0px 1px 0 #26D4FF;
- background-image: linear-gradient(to top, #1C1CFC, #633CFC);
- background-color: #3932FC;
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
 
+.button{
+ display: inline-block;
+ border:1px solid #55ABBD;
+ color: #32706E;
+ border-radius: 15px 15px 15px 15px;
+ -webkit-border-radius: 15px 15px 15px 15px;
+ -moz-border-radius: 15px 15px 15px 15px;
+ font-family: Comic Sans MS;
+ width: 100%;
+ height: auto;
+ font-size: 14px;
+ padding: 10px 100px;
+ box-shadow: 1px 1px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -moz-box-shadow: 1px 1px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -webkit-box-shadow: 1px 1px 0 0 #FFFFFF,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ text-shadow: 0 1px 0 #FFFFFF;
+ background-color: #F4FCFA;
+ margin: auto; 
+ display: block;
+ 
+}
+.button:hover, .button:active{
+ border:1px solid #967D09;
+ color: #705D07;
+ box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -webkit-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ background-color: #F8FC83;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
 }
 
 .titleFont {
@@ -38,10 +62,11 @@
 }
 
 .topicTable {
-	width: 300px;
+	
 	border: 1px solid black;
 	border-collapse: collapse;
 	font-family: "Bradley Hand ITC", Georgia, Serif;
+
 }
 
 .topicTable tr {
@@ -51,13 +76,14 @@
 
 
 .topicTable th{
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	border: 4px solid black;
     border-color: black;
 	padding: 8px 16px;
 }
 
 .topicTable td{
+	font-size: 1.0rem;
 	border: 2px solid black;
 	padding: 8px 16px;
 }
