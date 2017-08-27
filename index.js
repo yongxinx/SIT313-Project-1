@@ -80,36 +80,69 @@ var otherTopics = [
 //Nic's Code Here
 //------------------------------------------------------------------------------
 
+//add function to the initial page
+function showInitialPage() {
+	
+    //Create the initial page
+    var page = $("<div></div>");
+	page.append();
+	
+	//Add the LOG IN button
+	var logInButton = $("<button class='button'>LOG IN</button></br>");
+    page.append(logInButton);
+	logInButton.on("click", function() {
+		
+		showLoginPage();
+		
+	});
+	
+	//Add the JOIN TODAY! button
+    var joinTodayButton = $("<button class='button'>JOIN TODAY!</button>");
+    page.append(joinTodayButton);
+	joinTodayButton.on("click", function() {
+		
+		showRegistrationPage();
+		
+	});
+	
+	//Add the page to web app
+	$("#maincontent").html(page);
+	
+}
+
 //add function to show login page
 function showLoginPage() {
 	
 	//Create the login page
 	var page = $("<div></div>");
-	page.append("<h1 class='titleFont'>Login Page</h1>");
+	page.append("<h2 class='titleFont'>Login Page</h2>");
 	
 	//Add the username field
-	var username = $("<input type='text'></input>");
+	var username = $("<input type='text' placeholder='Username'></input>");
 	
-	var usernameLine = $("<p class='textFont'>Username: </p>");
-	usernameLine.append(username);
-	
-	page.append(usernameLine);
+	page.append(username);
 	
 	//Add the password field
-	var password = $("<input type='text'></input>");
+	var password = $("<input type='text' placeholder='Password'></input></br>");
 	
-	var passwordLine = $("<p class='textFont'>Password: </p>");
-	passwordLine.append(password);
-	
-	page.append(passwordLine);
+	page.append(password);
 	
 	//Add the login button
-	var loginButton = $("<button class='button'>Login</button>");
-	page.append(loginButton);
-	loginButton.on("click", function() {
+	var login = $("<button class='button'>Log In</button></br>");
+	page.append(login);
+	login.on("click", function() {
 		
 		showForumTopics();
 		
+	});
+	
+	//add go back button into showStudentTopicsPage
+	var logoutButton = $("<button class='button'>Go back</button>");
+	page.append(logoutButton);
+	logoutButton.on("click", function() {
+			
+    //function go back button forward to showInitialPage 
+		showInitialPage();
 	});
 	
 	//Add the page to web app
@@ -122,7 +155,7 @@ function showRegistrationPage() {
 	
 	//Create the registration page
 	var page = $("<div></div>");
-	page.append("<h1 class='titleFont'>Registration Page</h1>");
+	page.append("<h2 class='titleFont'>Registration Page</h2>");
 	
 	//add the email field
 	var email = $("<input type='text'></input>");
@@ -157,7 +190,7 @@ function showRegistrationPage() {
 	page.append(passwordLine);
 	
 	//Add the registerNow button
-	var registerNowButton = $("<button class='button'>Register Now!</button>");
+	var registerNowButton = $("<button class='button'>Register Now!</button></br>");
 	page.append(registerNowButton);
 	registerNowButton.on("click", function() {
 		
@@ -166,10 +199,65 @@ function showRegistrationPage() {
 		
 	});
 	
+	//add go back button into showRegistrationPage
+	var logoutButton = $("<button class='button'>Go back</button>");
+	page.append(logoutButton);
+	logoutButton.on("click", function() {
+			
+    //function go back button forward to showInitialPage 
+		showInitialPage();
+	});
+	
 	//Add the page to web app
 	$("#maincontent").html(page);
 	
 }
+
+/**
+    This function shows the list of all forum topics.
+	This function shows all topics that are in the "topics" variable.
+*/
+
+// add function to show Forum topics page
+function showForumTopics() {
+	
+	//Create the ForumTopic page
+	var page = $("<div></div>");
+	page.append("<h1 class='titleFont'>Forum topics</h1>");
+	
+	//create the table for showForumTopics
+	var topicTable = $("<table class='topicTable'><tr><th>Title</th><th>Posts</th><th>Last_Post</th></tr></table></br>");
+	
+	//Loop through all topics in the global variable "topics"
+	for(index in topics) {
+		
+		var row = $("<tr></tr>");
+		row.append("<td>" + topics[index].title + "</td>");
+		row.append("<td>" + topics[index].posts + "</td>");
+		row.append("<td>" + topics[index].Last_Post  + "</td>");
+
+		createOnClick(row,topics[index]);
+		
+		topicTable.append(row);
+		
+	}
+	
+    page.append(topicTable);
+	
+	    //add log out button into showForumTopics page
+		var logoutButton = $("<button class='button'>Logout</button>");
+	    page.append(logoutButton);
+	    logoutButton.on("click", function() {
+		
+		//operate showLoginPage function when login button is clicked
+			showLoginPage();
+	});
+		
+	//Add the page to web app
+	$("#maincontent").html(page);
+	
+}
+
 
 /**
     This function shows the list of all topics in studentTopics page.
@@ -184,7 +272,7 @@ function showStudentTopicsPage(){
 	page.append("<h1 class='titleFont'>Student topics</h1>");
 	
 	//create table for showStudentTopicsPage
-	var studentTopicTable = $("<table class='topicTable'><tr><th width='70%'>Title</th><th width='15%'>Contents</th><th width='15%'>Users</th></tr></table>");
+	var studentTopicTable = $("<table class='topicTable'><tr><th>Title</th><th>Contents</th><th>Users</th></tr></table></br>");
 	
 	//Loop through all topics in the global variable "stuentsTopics"
 	for(index in studentTopics) {
@@ -213,6 +301,10 @@ function showStudentTopicsPage(){
 	$("#maincontent").html(page);
 	
 }
+
+/**
+    These function is to direct users to the single tipic that they click and show the further page.
+*/
 
 //create onclick function to operate showSingleTopic function 
 function createOnClick(node,topic) {
@@ -249,7 +341,7 @@ function showOtherTopicsPage(){
 	page.append("<h1 class='titleFont'>Other topics</h1>");
 	
 	//create the table for showOtherTopicsPage
-	var otherTopicTable = $("<table class='topicTable'><tr><th width='70%'>Title</th><th width='15%'>Contents</th><th width='15%'>Users</th></tr></table>");
+	var otherTopicTable = $("<table class='topicTable'><tr><th>Title</th><th>Contents</th><th>Users</th></tr></table></br>");
 	
 	//Loop through all topics in the global variable "stuentsTopics"
 	for(index in otherTopics) {
@@ -280,51 +372,6 @@ function showOtherTopicsPage(){
 	
 }
 
-/**
-    This function shows the list of all forum topics.
-	This function shows all topics that are in the "topics" variable.
-*/
-
-// add function to show Forum topics page
-function showForumTopics() {
-	
-	//Create the ForumTopic page
-	var page = $("<div></div>");
-	page.append("<h1 class='titleFont'>Forum topics</h1>");
-	
-	//create the table for showForumTopics
-	var topicTable = $("<table class='topicTable'><tr><th width='70%'>Title</th><th width='15%'>Posts</th><th width='15%'>Last_Post</th></tr></table>");
-	
-	//Loop through all topics in the global variable "topics"
-	for(index in topics) {
-		
-		var row = $("<tr></tr>");
-		row.append("<td>" + topics[index].title + "</td>");
-		row.append("<td>" + topics[index].posts + "</td>");
-		row.append("<td>" + topics[index].Last_Post  + "</td>");
-
-		createOnClick(row,topics[index]);
-		
-		topicTable.append(row);
-		
-	}
-	
-    page.append(topicTable);
-	
-	    //add log out button into showForumTopics page
-		var logoutButton = $("<button class='button'>Logout</button>");
-	    page.append(logoutButton);
-	    logoutButton.on("click", function() {
-		
-		//operate showLoginPage function when login button is clicked
-			showLoginPage();
-	});
-		
-	//Add the page to web app
-	$("#maincontent").html(page);
-	
-}
-
 
 //------------------------------------------------------------------------------
 /**
@@ -334,10 +381,7 @@ function showForumTopics() {
 
 
 $( document ).ready(function() {
-	$("#loginButton").on("click", showLoginPage);
-	$("#registerButton").on("click", showRegistrationPage);
-	
-	//show the login page initially
-	showLoginPage();
-	
+
+	//show the initial page
+	showInitialPage()
 });
