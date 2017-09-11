@@ -372,7 +372,6 @@ function showOtherTopicsPage(){
 	
 }
 
-
 //------------------------------------------------------------------------------
 /**
 
@@ -381,7 +380,10 @@ function showOtherTopicsPage(){
 
 
 $( document ).ready(function() {
+	
+
 
 	//show the initial page
-	showInitialPage()
+	showInitialPage();
+	
 });
