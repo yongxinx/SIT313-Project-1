@@ -1,6 +1,4 @@
-.uppermenu{	
 
-}
 
 .center {
 display: block;
@@ -50,7 +48,18 @@ input[type=text], select {
     -webkit-border-radius: 15px 15px 15px 15px;
     -moz-border-radius: 15px 15px 15px 15px;
 }
-
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+}
 .titleFont {
 
 	font-family: "Bradley Hand ITC", Georgia, Serif;
@@ -65,11 +74,15 @@ input[type=text], select {
 	border: 1px solid black;
 	border-collapse: collapse;
 	font-family: "Bradley Hand ITC", Georgia, Serif;
-
 }
 
 .topicTable tr {
 	cursor: pointer;
+
+}
+
+.topicTable tr:hover{
+	background-color: #ffff99;
 
 }
 
